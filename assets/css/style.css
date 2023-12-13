@@ -19,7 +19,6 @@ a {
   width: 20px;
   height: 20px;
   border-radius: 5px;
-  margin-right: 20px;
 }
 
 /* ASIDE NAVBAR */
@@ -44,7 +43,8 @@ a {
   background-color: #004537;
 }
 
-.personal-container h3 {
+.personal-container h3,
+nav h3 {
   font-size: 1.2em;
 }
 
