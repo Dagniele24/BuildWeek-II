@@ -67,6 +67,25 @@ nav h3 {
   );
 }
 
+.track-management i {
+  font-size: 2.5em;
+  color: #b3b3b3;
+}
+
+.track-management .profile img {
+  width: 25px;
+  border-radius: 50%;
+}
+
+.track-management .profile {
+  width: 20%;
+}
+
+.track-management .profile i {
+  color: #fff;
+  font-size: 1.2em;
+}
+
 /* ASIDE FRIENDS */
 
 /* FOOTER */
