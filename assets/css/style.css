@@ -48,7 +48,24 @@ nav h3 {
   font-size: 1.2em;
 }
 
+.friends {
+  font-size: 12px;
+}
+
 /* MAIN */
+
+.col-7 {
+  background-color: #171717;
+}
+
+#card1 {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    9deg,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(23, 23, 23, 1) 90%
+  );
+}
 
 /* ASIDE FRIENDS */
 
