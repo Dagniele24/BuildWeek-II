@@ -58,7 +58,7 @@ nav h3 {
   background-color: #202020;
 }
 
-#card1 {
+#container-track {
   background: rgb(0, 0, 0);
   background: linear-gradient(
     40deg,
@@ -84,6 +84,10 @@ nav h3 {
 .track-management .profile i {
   color: #fff;
   font-size: 1.2em;
+}
+
+.hide-ads {
+    background-color: #2c2c2c;
 }
 
 /* ASIDE FRIENDS */
