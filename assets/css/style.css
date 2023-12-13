@@ -53,7 +53,14 @@ nav h3 {
 }
 
 /* MAIN */
+.col-7{
+    background-color: #171717;
+}
 
+#card1 {
+    background: rgb(0,0,0);
+    background: linear-gradient(9deg, rgba(0,0,0,1) 25%, rgba(23,23,23,1) 90%);
+}
 /* ASIDE FRIENDS */
 
 /* FOOTER */
