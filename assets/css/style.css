@@ -16,14 +16,33 @@ a {
 /* GENERAL */
 
 .squared-icon {
-  width: 30px;
-  height: 30px;
-  background-color: red;
+  width: 20px;
+  height: 20px;
   border-radius: 5px;
   margin-right: 20px;
 }
 
 /* ASIDE NAVBAR */
+
+.personal-container .square-gray {
+  background-color: #b3b3b3;
+  color: #2c2c2c;
+}
+
+.personal-container .square-gradient {
+  background: rgb(59, 28, 167);
+  background: linear-gradient(
+    156deg,
+    rgba(59, 28, 167, 1) 39%,
+    rgba(179, 179, 179, 1) 99%
+  );
+  color: #b3b3b3;
+}
+
+.personal-container .square-green {
+  color: #129643;
+  background-color: #004537;
+}
 
 /* MAIN */
 
