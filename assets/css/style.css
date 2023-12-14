@@ -103,3 +103,17 @@ nav h3 {
 /* ASIDE FRIENDS */
 
 /* FOOTER */
+#border-footer {
+  border: none;
+  background-color: transparent;
+  max-width: 400px;
+  max-height: 70px;
+}
+footer {
+  height: 100px;
+}
+
+.cuore {
+  margin-left: -60px;
+}
+
