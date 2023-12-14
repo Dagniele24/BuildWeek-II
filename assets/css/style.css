@@ -104,7 +104,18 @@ nav h3 {
 
 /* FOOTER */
 
-.cacca {
-  background-color: pink;
+
+#border-footer {
+  border: none;
+  background-color: transparent;
+  max-width: 400px;
+  max-height: 70px;
+}
+footer {
+  height: 100px;
+}
+
+.cuore {
+  margin-left: -60px;
 }
 
