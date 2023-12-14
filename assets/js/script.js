@@ -81,11 +81,8 @@ const getAlbums = () => {
 
 //create track generator
 function createTrackSection() {
-  
   const randomAlbumIndex = Math.floor(Math.random() * albums.length);
-  
   const randomAlbum = albums[randomAlbumIndex];
-  console.log(albums);
   const containerTrack = document.getElementById('container-track');
   containerTrack.innerHTML = `<img class="w-25 me-4" src="${randomAlbum.cover_medium}" alt="${randomAlbum.title}" />
   <div class="track-infos text-white">
