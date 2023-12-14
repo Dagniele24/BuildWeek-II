@@ -29,18 +29,19 @@ const getArtists = () => {
             .then((data) => {
               artists = data;
               createArtists(data);
+              
             });
     }) 
 };
 function createArtists(artists) {
     const rigartists = document.querySelector("#card-section-2");
-    rigartists.innerHTML += `<div class="card bg-dark text-white rounded-4" style="width: 18rem;">
+    rigartists.innerHTML += `<a href="#" class="card bg-dark text-white rounded-4" style="width: 18rem;">
         <img src="${artists.picture_big}" class="card-img-top" alt="card image">
         <div class="card-body">
           <h5 class="card-title">${artists.name}</h5>
           <p class="card-text">${artists.type}</p>
         </div>
-      </div>`
+      </a>`;
 }
 
 //FUNZIONE PER RECUPERARE ALBUMS
@@ -51,8 +52,10 @@ const getAlbums = () => {
            })
              .then((response) => response.json())
              .then((data) => {
-               albums = data;
-               createAlbums(data);
+                albums.push(data);
+                console.log(albums);
+                createAlbums(data);
+                createTrackSection();
              });
      })
  };
@@ -60,7 +63,7 @@ const getAlbums = () => {
  //USA LA FUNZIONE createAlbums PER GENERARE LE CARDS
  function createAlbums(albums) {
     const rigalbum = document.querySelector("#card-section-1");
-    rigalbum.innerHTML += `<div class="card mb-3 bg-dark text-white rounded-3" style="max-width: 540px;">
+    rigalbum.innerHTML += `<a href="#" class="card mb-3 bg-dark text-white rounded-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="${albums.cover_big}" class="img-fluid rounded-start" alt="...">
@@ -71,8 +74,46 @@ const getAlbums = () => {
                 </div>
               </div>
             </div>
+ 
           </div>
-        </div>`;
+        </a>`;
+}
+
+//create track generator
+function createTrackSection() {
+  
+  const randomAlbumIndex = Math.floor(Math.random() * albums.length);
+  
+  const randomAlbum = albums[randomAlbumIndex];
+  console.log(albums);
+  const containerTrack = document.getElementById('container-track');
+  containerTrack.innerHTML = `<img class="w-25 me-4" src="${randomAlbum.cover_medium}" alt="${randomAlbum.title}" />
+  <div class="track-infos text-white">
+      <div class="row-alignment d-flex flex-row justify-content-between">
+          <h6>ALBUM</h6>
+          <div class="hide-ads px-3 py-1 rounded-5">
+              NASCONDI ANNUNCI
+          </div>
+      </div>
+      <h1 id="song-title" class="display-1">${randomAlbum.tracks.data[0].title}</h1>
+      <h6 id="artist-name">${randomAlbum.artist.name}</h6>
+      <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+      <div class="row-alignment button-section">
+          <button class="btn btn-success me-2 py-3 rounded-5 px-5" type="button">
+              Play
+          </button>
+          <button class="btn btn-outline-light me-2 py-3 rounded-5 px-5" type="button">
+              Salva
+          </button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+              class="bi bi-three-dots" viewBox="0 0 16 16">
+              <path
+                  d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+          </svg>
+      </div>
+  </div> `;
 }
 
  function urlGeneratorAlbums(id) {
