@@ -116,10 +116,6 @@ function createTrackSection() {
  function urlGeneratorAlbums(id) {
     return urlAlbum + id;  
  }
-
-
-
-
 window.onload = () => {
     getAlbums();
   getArtists();
