@@ -173,7 +173,6 @@ function createTrackSection() {
 }
 
 
-
 window.onload = () => {
     getAlbums();
   getArtists();
