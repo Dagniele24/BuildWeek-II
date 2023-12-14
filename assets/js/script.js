@@ -178,3 +178,4 @@ window.onload = () => {
     getAlbums();
   getArtists();
 };
+
