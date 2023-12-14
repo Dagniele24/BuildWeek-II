@@ -95,6 +95,7 @@ function createTrackSection() {
       <h1 id="song-title" class="display-1">${randomAlbum.tracks.data[0].title}</h1>
       <h6 id="artist-name">${randomAlbum.artist.name}</h6>
       <p>
+      Sta canzone è bella fidati
           Sta canzone è bella fidati
       </p>
       <div class="row-alignment button-section">
@@ -116,9 +117,8 @@ function createTrackSection() {
  function urlGeneratorAlbums(id) {
     return urlAlbum + id;  
  }
-
-
 window.onload = () => {
     getAlbums();
   getArtists();
 };
+
