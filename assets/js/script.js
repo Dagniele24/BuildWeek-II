@@ -81,11 +81,8 @@ const getAlbums = () => {
 
 //create track generator
 function createTrackSection() {
-  
   const randomAlbumIndex = Math.floor(Math.random() * albums.length);
-  
   const randomAlbum = albums[randomAlbumIndex];
-  console.log(albums);
   const containerTrack = document.getElementById('container-track');
   containerTrack.innerHTML = `<img class="w-25 me-4" src="${randomAlbum.cover_medium}" alt="${randomAlbum.title}" />
   <div class="track-infos text-white">
@@ -98,7 +95,7 @@ function createTrackSection() {
       <h1 id="song-title" class="display-1">${randomAlbum.tracks.data[0].title}</h1>
       <h6 id="artist-name">${randomAlbum.artist.name}</h6>
       <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Sta canzone è bella fidati
       </p>
       <div class="row-alignment button-section">
           <button class="btn btn-success me-2 py-3 rounded-5 px-5" type="button">
@@ -119,9 +116,8 @@ function createTrackSection() {
  function urlGeneratorAlbums(id) {
     return urlAlbum + id;  
  }
-
-
 window.onload = () => {
     getAlbums();
   getArtists();
 };
+
