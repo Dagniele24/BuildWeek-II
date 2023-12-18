@@ -64,8 +64,8 @@ function createAlbumSection(data) {
   // }
 
   console.log(albums);
-  const containerMain = document.querySelector("main");
-  containerMain.innerHTML = `
+  const containerTrack = document.querySelector("#container-track2");
+  containerTrack.innerHTML = `
 
     // ///
     <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
