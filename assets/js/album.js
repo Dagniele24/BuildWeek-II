@@ -65,21 +65,38 @@ function createAlbumSection(data) {
 
   console.log(albums);
   const containerMain = document.querySelector("main");
-  containerMain.innerHTML = `<img class="w-25 me-4" src="${data.cover_medium}" alt="${data.title}" />
-    <div class="track-infos text-white">
-        <div class="row-alignment d-flex flex-row justify-content-between">
-        </div>
-        <h1 id="song-title" class="display-1">${data.title}</h1>
-        <h6 id="artist-name">${data.artist.name}</h6>
-        <div><img class="rounded-circle" src="">
-        <p>
-        <span>nome</span>
-        <span>anno</span>
-        <span>brani</span>
-        <span>durata</span>
+  containerMain.innerHTML = `
+
+    // ///
+    <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${data.cover_medium}" class="img-fluid rounded-start" alt="${data.title}">
+    </div>
+    <div class="col-md-8">
+     <div class="row">
+      <div class="card-body  mt-5">
+        <h1 class="card-title">${data.title}</h1>
+        <h4 id="artist-name">${data.artist.name}</h4>
+        <div class="container   mt-5 align-items-center "><div class=" row d-flex align-items-center"><img class="rounded-circle col-1" src="${data.artist.picture} ">
+        <p class="col-11  mt-3">
+        <span class="">-${data.artist.name}</span>
+        <span class="">-${data.release_date}</span>
+        <span class="">-${data.nb_tracks}</span>
+        <span class="">-${data.duration}</span>
         </p>
         </div>
-    </div> `;
+        </div>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+
+
+     <div/>
+    </div>
+  </div>
+</div>
+
+    `;
 }
 
 window.onload = () => {
