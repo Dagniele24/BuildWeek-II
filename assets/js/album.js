@@ -82,7 +82,7 @@ function convertTimeAlbums(data) {
   sec = Math.floor(songDuration % 60);
 }
 function createTable(tracks) {
-  convertTimeAlbums(track.duration);
+  convertTimeAlbums(tracks.duration);
   const tBody = document.querySelector("#bodyTable");
   let tableHTML = ""
   tracks.forEach((track, index) => {
