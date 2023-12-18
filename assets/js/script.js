@@ -35,7 +35,7 @@ const getArtists = () => {
 };
 function createArtists(artists) {
     const rigartists = document.querySelector("#card-section-2");
-    rigartists.innerHTML += `<a href="#" class="card bg-dark text-white rounded-4" style="width: 18rem;">
+    rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4" style="width: 18rem;">
         <img src="${artists.picture_big}" class="card-img-top" alt="card image">
         <div class="card-body">
           <h5 class="card-title">${artists.name}</h5>
