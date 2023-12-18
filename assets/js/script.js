@@ -63,7 +63,7 @@ const getAlbums = () => {
  //USA LA FUNZIONE createAlbums PER GENERARE LE CARDS
  function createAlbums(albums) {
     const rigalbum = document.querySelector("#card-section-1");
-    rigalbum.innerHTML += `<a href="#" class="card mb-3 bg-dark text-white rounded-3" style="max-width: 540px;">
+    rigalbum.innerHTML += `<a href="album.html?id=${albums.id}" class="card mb-3 bg-dark text-white rounded-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="${albums.cover_big}" class="img-fluid rounded-start" alt="...">
@@ -111,7 +111,7 @@ function createTrackSection() {
                   d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
           </svg>
       </div>
-  </div> `;
+  </div>`;
 }
 
  function urlGeneratorAlbums(id) {
