@@ -12,8 +12,9 @@ function getRecord(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      artists.push(data.data); // Assicurati che questo sia il comportamento desiderato
+      artists.push(data.data);
       createArtistSection(data.data);
+      //console.log(artists);
     })
     .catch((error) => console.error('Errore nel recupero dei dati:', error));
 }
@@ -33,6 +34,7 @@ const getArtist = (id) => {
       artists.push(data);
       // tracks.push(data.tracks);
       createBanner(data);
+      createLikedTracks(data);
     });
 };
 function createBanner(data) {
@@ -118,6 +120,17 @@ function createArtistSection(tracks) {
   });
   tBody.innerHTML = tableHTML;
 }
+
+function createLikedTracks(artist) {
+  const likedTracksSection = document.getElementById('liked-tracks');
+
+  likedTracksSection.innerHTML = `<img src="${artist.picture}" alt="${artist.name} picture" class="w-25 rounded-circle" />
+  <div class="d-flex flex-column">
+    <p>Hai messo mi piace a 11 brani</p>
+    <p>Di ${artist.name}</p>
+    </div>`;
+}
+
 window.onload = () => {
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
