@@ -30,9 +30,7 @@ function createAlbumSection(data) {
    /* let year = date.slice(0, 4); */
   
   // RECUPERO DURATA ALBUM
-    let songDuration = data.duration; 
-    min = Math.floor(songDuration/60);
-    sec = Math.floor(songDuration % 60);
+    convertTime(data);
   
   const containerTrack = document.querySelector("#container-track2");
   containerTrack.innerHTML = `
@@ -72,29 +70,40 @@ function createAlbumSection(data) {
 
 //FUNZIONE POPOLA LISTA PAGINA ALBUM
 
+function convertTime(data) {
+let songDuration = data.duration; 
+min = Math.floor(songDuration/60);
+sec = Math.floor(songDuration % 60);
+}
 
-
+function convertTimeAlbums(data) {
+  let songDuration = data.tracks.data; 
+  min = Math.floor(songDuration/60);
+  sec = Math.floor(songDuration % 60);
+}
 function createTable(tracks) {
+  convertTimeAlbums(track.duration);
   const tBody = document.querySelector("#bodyTable");
   let tableHTML = ""
   tracks.forEach((track, index) => {
     tableHTML +=
     `
   <tr>
+  <div id="margine">
     <th scope="row" class="bg-transparent">${index + 1}</th>
-    <td rowspan="2">
-        <p class="mb-0">${track.title}</p>
-        <p>${track.artist.name}</p>
+    <td >
+    
+        <a href="#"><p class="mb-0">${track.title}</p>
+        <p class="mb-0">${track.artist.name}</p></a>
+    </div>
     </td>
-  </tr>
-  <tr>
-    <th scope="row" class="bg-transparent">2</th>
+
+    
     <td>${track.rank}</td>
-  </tr>
-  <tr>
-    <th scope="row" class="bg-transparent">3</th>
-    <td colspan="2">${track.duration}</td>
-    <td></td>
+  
+   
+    <td >${convertTimeAlbums(track.duration)} + sec</td>
+   
   </tr>
 
   `;
