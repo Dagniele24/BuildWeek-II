@@ -1,44 +1,44 @@
 let numberList = 5;
 const showMore = document.getElementById('showMore');
 function urlGeneratorTracks(id, limit) {
-    return urlArtist + id + `/top?limit=${limit}`;
+  return urlArtist + id + `/top?limit=${limit}`;
 }
 function getRecord(id) {
-    fetch(urlGeneratorTracks(id, numberList), {
-        headers: {
-            authorization: token,
-            Accept: 'application/json',
-        },
-    })
+  fetch(urlGeneratorTracks(id, numberList), {
+    headers: {
+      authorization: token,
+      Accept: 'application/json',
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
-        artists.push(data.data); // Assicurati che questo sia il comportamento desiderato
-        createArtistSection(data.data);
+      artists.push(data.data); // Assicurati che questo sia il comportamento desiderato
+      createArtistSection(data.data);
     })
-    .catch(error => console.error('Errore nel recupero dei dati:', error));
+    .catch((error) => console.error('Errore nel recupero dei dati:', error));
 }
 function urlGeneratorArtist(id) {
-    return urlArtist + id;
-  }
+  return urlArtist + id;
+}
 
-  const getArtist = (id) => {
-    fetch(urlGeneratorArtist(id), {
-      headers: {
-        authorization: token,
-        Accept: 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        artists.push(data);
-        // tracks.push(data.tracks);
-        createBanner(data);
-      });
-  };
+const getArtist = (id) => {
+  fetch(urlGeneratorArtist(id), {
+    headers: {
+      authorization: token,
+      Accept: 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      artists.push(data);
+      // tracks.push(data.tracks);
+      createBanner(data);
+    });
+};
 function createBanner(data) {
-    console.log(data);
-    const containerTrack = document.querySelector('#container-track2');
-    containerTrack.innerHTML = `
+  console.log(data);
+  const containerTrack = document.querySelector('#container-track2');
+  containerTrack.innerHTML = `
     <div class=" mx-0" style="background-image: url(${data.picture_xl}); background-size: cover ; background-position: 50% 40%; " >
     <div >
     <div
@@ -79,23 +79,25 @@ function createBanner(data) {
 </div>
 
     `;
-  }
+}
 
-  function convertTimeAlbums(durationInSeconds) {
-    const minutes = Math.floor(durationInSeconds / 60);
-    const seconds = durationInSeconds % 60;
-    return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-  }
+function convertTimeAlbums(durationInSeconds) {
+  const minutes = Math.floor(durationInSeconds / 60);
+  const seconds = durationInSeconds % 60;
+  return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+}
 
-  function createArtistSection(tracks) {
-    const tBody = document.querySelector('#tabArtist');
+function createArtistSection(tracks) {
+  const tBody = document.querySelector('#tabArtist');
   let tableHTML = '';
   tracks.forEach((track, index) => {
     tableHTML += `
   <tr>
     <th scope="row" class="bg-transparent">${index + 1}</th>
     <td >
-        <a href="#"><img src="${track.album.cover_small}" alt="cover album"></a>
+        <a href="album.html?id=${track.album.id}""><img src="${
+      track.album.cover_small
+    }" alt="cover album"></a>
         <p class="mb-0"><a href="#">${track.title}</a></p>
    
     </td>
@@ -109,16 +111,14 @@ function createBanner(data) {
   `;
   });
   tBody.innerHTML = tableHTML;
-  }
-  window.onload = () => {
-    const params = new URLSearchParams(location.search);
-    const id = params.get('id');
+}
+window.onload = () => {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  getRecord(id);
+  getArtist(id);
+  showMore.onclick = () => {
+    numberList += 5;
     getRecord(id);
-    getArtist(id)
-    showMore.onclick = () => {
-        numberList += 5;
-        getRecord(id);
-        
-    };
   };
-  
+};
