@@ -1,4 +1,7 @@
 let numberList = 5;
+function extendList () {
+    numberList += 5
+  }
 
   function urlGeneratorArtist(id) {
     return urlArtist + id;
@@ -49,9 +52,7 @@ let numberList = 5;
   }
 
   
-  function extendList () {
-    numberList += 5
-  }
+  
 
 
   window.onload = () => {
