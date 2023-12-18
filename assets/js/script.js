@@ -96,6 +96,7 @@ function createTrackSection() {
       <h6 id="artist-name">${randomAlbum.artist.name}</h6>
       <p>
       Sta canzone è bella fidati
+          Sta canzone è bella fidati
       </p>
       <div class="row-alignment button-section">
           <button class="btn btn-success me-2 py-3 rounded-5 px-5" type="button">
