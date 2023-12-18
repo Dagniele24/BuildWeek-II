@@ -122,3 +122,27 @@ footer {
   margin-left: -60px;
 }
 
+
+
+
+/* main pagina album*/
+
+#tabello {
+  background-color: transparent; 
+ 
+}
+
+#tabello thead th {
+  background-color: transparent; 
+}
+
+#tabello tbody td {
+  background-color: transparent; 
+}
+
+#tabello th,
+#tabello td {
+  color:white; 
+}
+
+
