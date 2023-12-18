@@ -94,7 +94,9 @@ function createArtistSection(tracks) {
     tableHTML += `
   <tr>
   
-    <th scope="row" class="bg-transparent">${index + 1}</th>
+    <th scope="row" class="bg-transparent"><div class="d-flex align-items-center"> ${
+      index + 1
+    }</div></th>
     <td>
     <div class="d-flex flex-row align-items-center">
         <a href="album.html?id=${track.album.id}"><img class="w-50" src="${
@@ -104,9 +106,11 @@ function createArtistSection(tracks) {
         </div>
     </td>
     
-    <td>${track.rank}</td>
+    <td ><div class="d-flex align-items-center"> ${track.rank}</div></td>
   
-    <td >${convertTimeAlbums(track.duration)}</td>
+    <td <div class="d-flex align-items-center">${convertTimeAlbums(
+      track.duration
+    )}</div></td>
    
   </tr>
 
