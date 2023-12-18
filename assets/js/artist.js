@@ -93,15 +93,17 @@ function createArtistSection(tracks) {
   tracks.forEach((track, index) => {
     tableHTML += `
   <tr>
+  
     <th scope="row" class="bg-transparent">${index + 1}</th>
-    <td >
-        <a href="album.html?id=${track.album.id}""><img src="${
+    <td>
+    <div class="d-flex flex-row align-items-center">
+        <a href="album.html?id=${track.album.id}"><img class="w-50" src="${
       track.album.cover_small
     }" alt="cover album"></a>
         <p class="mb-0"><a href="#">${track.title}</a></p>
-   
+        </div>
     </td>
-
+    
     <td>${track.rank}</td>
   
     <td >${convertTimeAlbums(track.duration)}</td>
