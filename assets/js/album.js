@@ -78,17 +78,15 @@ function createAlbumSection(data) {
       <div class="card-body  mt-5">
         <h1 class="card-title">${data.title}</h1>
         <h4 id="artist-name">${data.artist.name}</h4>
-        <p class="container  card-text mt-5"><div class=" row d-flex align-items-center"><img class="rounded-circle col-1"  src="${data.artist.picture}">
-        <p class="col-11 ">
-      
-        <span>-${data.artist.name}</span>
-        <span>-${data.release_date}</span>
-        <span>-${data.nb_tracks}</span>
-        <span>-${data.duration}</span>
-       
+        <div class="container   mt-5 align-items-center "><div class=" row d-flex align-items-center"><img class="rounded-circle col-1" src="${data.artist.picture} ">
+        <p class="col-11  mt-3">
+        <span class="">-${data.artist.name}</span>
+        <span class="">-${data.release_date}</span>
+        <span class="">-${data.nb_tracks}</span>
+        <span class="">-${data.duration}</span>
         </p>
         </div>
-        </p>
+        </div>
         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
       </div>
 
