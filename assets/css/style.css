@@ -140,4 +140,7 @@ footer {
   color:white; 
 }
 
-
+#margine {
+  display:flex;
+  align-items: center;
+}
