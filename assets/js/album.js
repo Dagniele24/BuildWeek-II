@@ -12,28 +12,21 @@ const getRecord = (id) => {
     .then((response) => response.json())
     .then((data) => {
       albums.push(data);
-      // tracks.push(data.tracks);
-
       createAlbumSection(data);
       console.log(data.tracks.data);
       createTable(data.tracks.data);
-      //createTable(data.tracks)
     });
 };
+
 
 function createAlbumSection(data) {
   //RECUPERO ANNO ALBUM
   let date = data.release_date;
   let year = date.split('-')[0];
-  /* let year = date.slice(0, 4); */
-
   // RECUPERO DURATA ALBUM
   convertTime(data);
-
   const containerTrack = document.querySelector('#container-track2');
   containerTrack.innerHTML = `
-
-    // ///
     <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -59,14 +52,20 @@ function createAlbumSection(data) {
         </div>
         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
       </div>
-
-
-     <div/>
+      <div/>
     </div>
   </div>
-</div>
+</div>`;
+// const img = new Image();
+//   img.crossOrigin = "Anonymous"; // Necessario per le immagini CORS
+//   img.src = data.cover_medium;
+//   img.onload = function() {
+//     const colorThief = new ColorThief();
+//     const dominantColor = colorThief.getColor(img);
+//     const rgbColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+//     document.querySelector('.card').style.backgroundColor = rgbColor;
+//   };
 
-    `;
 }
 
 // Funzione conversione durata album
@@ -92,23 +91,17 @@ function createTable(tracks) {
   let tableHTML = '';
   tracks.forEach((track, index) => {
     tableHTML += `
-  <tr>
-  <div id="margine">
+    <tr>
+    <div id="margine">
     <th scope="row" class="bg-transparent">${index + 1}</th>
     <td >
-    
         <a href="#"><p class="mb-0">${track.title}</p>
         <p class="mb-0">${track.artist.name}</p></a>
     </div>
     </td>
-
     <td>${track.rank}</td>
-  
     <td >${convertTimeAlbums(track.duration)}</td>
-   
-  </tr>
-
-  `;
+    </tr>`;
   });
   tBody.innerHTML = tableHTML;
 }
