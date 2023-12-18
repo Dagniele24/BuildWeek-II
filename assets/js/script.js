@@ -98,7 +98,7 @@ function createTrackSection() {
       Sta canzone è bella fidati
       </p>
       <div class="row-alignment button-section">
-          <button class="btn btn-success me-2 py-3 rounded-5 px-5" type="button">
+          <button class="btn btn-success me-2 py-3 rounded-5 px-5" style="background-color:#1BD760; color:black" type="button">
               Play
           </button>
           <button class="btn btn-outline-light me-2 py-3 rounded-5 px-5" type="button">
