@@ -25,15 +25,13 @@ function createAlbumSection(data) {
   //RECUPERO ANNO ALBUM
   let date = data.release_date;
   //let year = date.split('-')[0];
-   let year = date.slice(0, 4); 
+  let year = date.slice(0, 4);
 
   // RECUPERO DURATA ALBUM
   convertTime(data);
 
   const containerTrack = document.querySelector('#container-track2');
   containerTrack.innerHTML = `
-
-    // ///
     <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -45,12 +43,16 @@ function createAlbumSection(data) {
      <div class="row">
       <div class="card-body  mt-5">
         <h1 class="card-title">${data.title}</h1>
-        <h4 id="artist-name"><a href="artist.html?id=${data.artist.id}">${data.artist.name}</a></h4>
+        <h4 id="artist-name"><a href="artist.html?id=${data.artist.id}">${
+    data.artist.name
+  }</a></h4>
         <div class="container   mt-5 align-items-center "><div class=" row d-flex align-items-center"><img class="rounded-circle col-1" src="${
           data.artist.picture
         } ">
         <p class="col-11  mt-3">
-        <span class=""><a href="artist.html?id=${data.artist.id}">${data.artist.name}</a></span>
+        <span class=""><a href="artist.html?id=${data.artist.id}">${
+    data.artist.name
+  }</a></span>
         <span class="">- ${year}</span>
         <span class="">-${data.nb_tracks} brani,</span>
         <span class="text-secondary">${min + ' min. ' + sec + ' sec.'}</span>
@@ -59,8 +61,6 @@ function createAlbumSection(data) {
         </div>
         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
       </div>
-
-
      <div/>
     </div>
   </div>
@@ -98,7 +98,9 @@ function createTable(tracks, album) {
     <td >
     
         <a href="#"><p class="mb-0">${track.title}</p></a>
-        <p class="mb-0"><a href="artist.html?id=${track.artist.id}">${track.artist.name}</a></p>
+        <p class="mb-0"><a href="artist.html?id=${track.artist.id}">${
+      track.artist.name
+    }</a></p>
     </div>
     </td>
 

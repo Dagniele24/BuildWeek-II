@@ -1,41 +1,43 @@
 const urlSearch = 'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
-const urlAlbum='https://striveschool-api.herokuapp.com/api/deezer/album/';
-const urlArtist='https://striveschool-api.herokuapp.com/api/deezer/artist/';
+const urlAlbum = 'https://striveschool-api.herokuapp.com/api/deezer/album/';
+const urlArtist = 'https://striveschool-api.herokuapp.com/api/deezer/artist/';
 const token =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4MjkyNGMwNTgzNTAwMTg1MjJkMGIiLCJpYXQiOjE3MDIzNzM2NjgsImV4cCI6MTcwMzU4MzI2OH0.3UPGwlcKf8Ag5wW0fA_00qA6c7XcRvZQrqN5iPJRhSY";
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4MjkyNGMwNTgzNTAwMTg1MjJkMGIiLCJpYXQiOjE3MDIzNzM2NjgsImV4cCI6MTcwMzU4MzI2OH0.3UPGwlcKf8Ag5wW0fA_00qA6c7XcRvZQrqN5iPJRhSY';
 
 let nomeArtista;
 let albumsId = [725251, 75621062, 504425001, 116581812, 494082601, 42133801];
-let artistsId = [412, 7892860, 459578, 54587122, 151295012, 75798, 93, 5603958, 10520799, 5603958, 6511779, 412];
-let albums = []
-let artists = []
+let artistsId = [
+  412, 7892860, 459578, 54587122, 151295012, 75798, 93, 5603958, 10520799,
+  5603958, 6511779, 412,
+];
+let albums = [];
+let artists = [];
 
 const headers = {
   Authorization: token,
-  Accept: "application/json",
-  "Content-Type": "application/json",
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
 };
 function urlGeneratorArtists(id) {
-   return urlArtist + id;    
+  return urlArtist + id;
 }
 
 //FUNZIONE PER RECUPERARE ARTISTI
 const getArtists = () => {
-    artistsId.forEach((id) => {
-        fetch(urlGeneratorArtists(id), {
-            headers: headers,
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              artists = data;
-              createArtists(data);
-              
-            });
-    }) 
+  artistsId.forEach((id) => {
+    fetch(urlGeneratorArtists(id), {
+      headers: headers,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        artists = data;
+        createArtists(data);
+      });
+  });
 };
 function createArtists(artists) {
-    const rigartists = document.querySelector("#card-section-2");
-    rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4" style="width: 18rem;">
+  const rigartists = document.querySelector('#card-section-2');
+  rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4" style="width: 18rem;">
         <img src="${artists.picture_big}" class="card-img-top" alt="card image">
         <div class="card-body">
           <h5 class="card-title">${artists.name}</h5>
@@ -46,24 +48,25 @@ function createArtists(artists) {
 
 //FUNZIONE PER RECUPERARE ALBUMS
 const getAlbums = () => {
-     albumsId.forEach((id) => {
-         fetch(urlGeneratorAlbums(id), {
-             headers: headers,
-           })
-             .then((response) => response.json())
-             .then((data) => {
-                albums.push(data);
-                console.log(albums);
-                createAlbums(data);
-                createTrackSection();
-             });
-     })
- };
+  albumsId.forEach((id) => {
+    fetch(urlGeneratorAlbums(id), {
+      headers: headers,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        albums.push(data);
+        console.log(albums);
+        createAlbums(data);
+        createTrackSection();
+        createFooter();
+      });
+  });
+};
 
- //USA LA FUNZIONE createAlbums PER GENERARE LE CARDS
- function createAlbums(albums) {
-    const rigalbum = document.querySelector("#card-section-1");
-    rigalbum.innerHTML += `<a href="album.html?id=${albums.id}" class="card mb-3 bg-dark text-white rounded-3" style="max-width: 540px;">
+//USA LA FUNZIONE createAlbums PER GENERARE LE CARDS
+function createAlbums(albums) {
+  const rigalbum = document.querySelector('#card-section-1');
+  rigalbum.innerHTML += `<a href="album.html?id=${albums.id}" class="card mb-3 bg-dark text-white rounded-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="${albums.cover_big}" class="img-fluid rounded-start" alt="...">
@@ -113,11 +116,36 @@ function createTrackSection() {
   </div>`;
 }
 
- function urlGeneratorAlbums(id) {
-    return urlAlbum + id;  
- }
+function urlGeneratorAlbums(id) {
+  return urlAlbum + id;
+}
+
+function createFooter() {
+  const randomAlbumIndex = Math.floor(Math.random() * albums.length);
+  const randomAlbum = albums[randomAlbumIndex];
+  const randomTrackIndex = Math.floor(
+    Math.random() * randomAlbum.tracks.data.length
+  );
+
+  const footerSong = document.getElementById('footer-song');
+  footerSong.innerHTML = `<div class="col-md-2 d-flex align-items-center">
+<img
+  src="${randomAlbum.cover}"
+  class="img-fluid rounded-start"
+  alt="${randomAlbum.title} cover"
+/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+  <h5 class="card-title">${randomAlbum.tracks.data[randomTrackIndex].title}</h5>
+  <p class="card-text">
+    ${randomAlbum.artist.name}
+  </p>
+</div>
+</div>`;
+}
+
 window.onload = () => {
-    getAlbums();
+  getAlbums();
   getArtists();
 };
-
