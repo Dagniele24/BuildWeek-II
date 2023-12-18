@@ -33,7 +33,7 @@ function createAlbumSection(data) {
   const containerTrack = document.querySelector('#container-track2');
   containerTrack.innerHTML = `
 
-    // ///
+   
     <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
   <div class="row g-0">
     <div class="col-md-4">
