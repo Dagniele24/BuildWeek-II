@@ -50,6 +50,10 @@ nav h3 {
   font-size: 12px;
 }
 
+.friends {
+  font-size: 12px;
+}
+
 /* MAIN */
 
 .col-7 {
@@ -90,6 +94,7 @@ nav h3 {
 
 .card-section-1 .card {
   width: 30%;
+
 }
 
 ::-webkit-scrollbar {
@@ -117,3 +122,30 @@ footer {
   margin-left: -60px;
 }
 
+
+
+
+/* main pagina album*/
+
+#tabello {
+  background-color: transparent; 
+ 
+}
+
+#tabello thead th {
+  background-color: transparent; 
+}
+
+#tabello tbody td {
+  background-color: transparent; 
+}
+
+#tabello th,
+#tabello td {
+  color:white; 
+}
+
+#margine {
+  display:flex;
+  align-items: center;
+}
