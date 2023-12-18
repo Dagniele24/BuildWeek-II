@@ -144,6 +144,14 @@ function createFooter() {
 </div>`;
 }
 
+
+  const verde = document.querySelector('#verde');
+  verde.onclick = () => {
+    verde.classList.toggle('cuore');
+  }
+
+
+
 window.onload = () => {
   getAlbums();
   getArtists();
