@@ -1,3 +1,5 @@
+scriptjs
+
 const urlSearch = 'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
 const urlAlbum = 'https://striveschool-api.herokuapp.com/api/deezer/album/';
 const urlArtist = 'https://striveschool-api.herokuapp.com/api/deezer/artist/';
@@ -145,11 +147,16 @@ function createFooter() {
 
 
 const cuoreIcon = document.querySelector('.cuore');
+
 cuoreIcon.onclick = () => {
   const currentColor = cuoreIcon.getAttribute('fill');
   const newColor = currentColor === 'green' ? '' : 'green';
+
   cuoreIcon.setAttribute('fill', newColor);
 };
+
+
+
 window.onload = () => {
   getAlbums();
   getArtists();
