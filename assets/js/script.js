@@ -143,16 +143,12 @@ function createFooter() {
   </div>`;
 }
 
-
-
-const verde = document.querySelector('#verde');
-verde.onclick = () => {
-  verde.classList.toggle('cuore');
-}
-
-
-
-
+const cuoreIcon = document.querySelector('.cuore');
+cuoreIcon.onclick = () => {
+  const currentColor = cuoreIcon.getAttribute('fill');
+  const newColor = currentColor === 'green' ? '' : 'green';
+  cuoreIcon.setAttribute('fill', newColor);
+};
 
 window.onload = () => {
   getAlbums();
