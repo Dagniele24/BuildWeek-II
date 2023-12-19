@@ -411,7 +411,7 @@
           </div>
           <div class="play-bar" style="margin-left: 100px; margin-right: 100px">
             <div class="play-fill"></div>
-            <input id="play" type="range" max="100" min="0" value="0" class="bg-black text-black w-100"
+            <input id="play" type="range" max="100" min="0" value="0" class="bg-black text-black w-100 volume"
               style="height: 3px" oninput="updatePlay(this.value)" />
           </div>
         </div>
@@ -447,7 +447,7 @@
           <div class="d-flex align-items-center">
             <div class="volume-bar">
               <div class="volume-fill"></div>
-              <input id="pallino" type="range" min="0" max="100" value="0" step="1"
+              <input id="pallino" class="volume" type="range" min="0" max="100" value="0" step="1"
                 oninput="updateVolume(this.value)" />
             </div>
           </div>
