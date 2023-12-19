@@ -46,19 +46,12 @@ function createBanner(data) {
     <div
                         class=" p-2 pb-5 row-container track-management mb-2 d-flex flex-row justify-content-between align-items-center">
                         <div class="track-control-icons mx-3">
-                            <a href="index.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-caret-left" viewBox="0 0 16 16">
-                                    <path
-                                        d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z" />
-                                </svg></a>
-                            <a href="#" class="mx-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray"
-                                    class="bi bi-caret-right" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
-                                </svg></a>
-                        </div>
+                        <a href="index.html">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-caret-left border border-black border-3 bg-white rounded-circle"><path d="M12,0A12,12,0,1,0,24,12,12.01,12.01,0,0,0,12,0Zm2.64,16.232a1,1,0,1,1-1.28,1.536l-6-5a1,1,0,0,1,0-1.536l6-5a1,1,0,1,1,1.28,1.536L9.562,12Z"/></svg>
+                            </a>
+                        <a href="#" class="mx-3">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-caret-right border border-black border-3 bg-dark rounded-circle"><path d="M12,0A12,12,0,1,0,24,12,12.01,12.01,0,0,0,12,0Zm4.641,12.768-6,5a1,1,0,1,1-1.282-1.536L14.437,12,9.359,7.768a1,1,0,1,1,1.282-1.536l6,5a1,1,0,0,1,0,1.536Z"/></svg></a>
+                    </div>
                         <div
                             class="profile bg-black d-flex flex-row align-items-center rounded-5 text-white justify-content-between pe-2 py-1">
                             <div class="left d-flex flex-row align-items-center">
