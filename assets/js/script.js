@@ -95,7 +95,7 @@ function createTrackSection() {
           </div>
       </div>
       <h1 id="song-title" class="display-1">${randomAlbum.tracks.data[0].title}</h1>
-      <h6 id="artist-name"><a>${randomAlbum.artist.name}</a></h6>
+      <h6 id="artist-name"><a href="artist.html?id=${randomAlbum.artist.id}">${randomAlbum.artist.name}</a></h6>
       <p>
       Sta canzone è bella fidati
       </p>

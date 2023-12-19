@@ -105,7 +105,7 @@ function convertTimeAlbums(durationInSeconds) {
 function createArtistSection(tracks) {
   const tBody = document.querySelector('#tabArtist');
   let tableHTML = '';
-  console.log(tracks);
+  //console.log(tracks);
   tracks.forEach((track, index) => {
     tableHTML += `
   <tr>
