@@ -12,8 +12,6 @@ const getRecord = (id) => {
     .then((response) => response.json())
     .then((data) => {
       albums.push(data);
-      // tracks.push(data.tracks);
-
       createAlbumSection(data);
       console.log(data.tracks.data);
       createTable(data.tracks.data, data);
@@ -21,6 +19,7 @@ const getRecord = (id) => {
       createFooter(data.tracks.data, data);
     });
 };
+
 
 function createAlbumSection(data) {
   //RECUPERO ANNO ALBUM
@@ -30,7 +29,6 @@ function createAlbumSection(data) {
 
   // RECUPERO DURATA ALBUM
   convertTime(data);
-
   const containerTrack = document.querySelector('#container-track2');
   containerTrack.innerHTML = `
     <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
@@ -65,9 +63,17 @@ function createAlbumSection(data) {
      <div/>
     </div>
   </div>
-</div>
+</div>`;
+// const img = new Image();
+//   img.crossOrigin = "Anonymous"; // Necessario per le immagini CORS
+//   img.src = data.cover_medium;
+//   img.onload = function() {
+//     const colorThief = new ColorThief();
+//     const dominantColor = colorThief.getColor(img);
+//     const rgbColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+//     document.querySelector('.card').style.backgroundColor = rgbColor;
+//   };
 
-    `;
 }
 
 // Funzione conversione durata album
@@ -93,8 +99,8 @@ function createTable(tracks, album) {
   let tableHTML = '';
   tracks.forEach((track, index) => {
     tableHTML += `
-  <tr>
-  <div id="margine">
+    <tr>
+    <div id="margine">
     <th scope="row" class="bg-transparent">${index + 1}</th>
     <td >
     
@@ -104,14 +110,9 @@ function createTable(tracks, album) {
     }</a></p>
     </div>
     </td>
-
     <td>${track.rank}</td>
-  
     <td >${convertTimeAlbums(track.duration)}</td>
-   
-  </tr>
-
-  `;
+    </tr>`;
   });
   tBody.innerHTML = tableHTML;
 }
