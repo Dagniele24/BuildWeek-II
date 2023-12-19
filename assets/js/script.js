@@ -125,23 +125,22 @@ function createFooter() {
   const randomTrackIndex = Math.floor(
     Math.random() * randomAlbum.tracks.data.length
   );
-
   const footerSong = document.getElementById('footer-song');
   footerSong.innerHTML = `<div class="col-md-2 d-flex align-items-center">
-<img
-  src="${randomAlbum.cover}"
-  class="img-fluid rounded-start"
-  alt="${randomAlbum.title} cover"
-/>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-  <h5 class="card-title">${randomAlbum.tracks.data[randomTrackIndex].title}</h5>
-  <p class="card-text">
-    ${randomAlbum.artist.name}
-  </p>
-</div>
-</div>`;
+  <img
+    src="${randomAlbum.cover}"
+    class="img-fluid rounded-start"
+    alt="${randomAlbum.title} cover"
+  />
+  </div>
+  <div class="col-md-8">
+  <div class="card-body">
+    <h5 class="card-title">${randomAlbum.tracks.data[randomTrackIndex].title}</h5>
+    <p class="card-text">
+      ${randomAlbum.artist.name}
+    </p>
+  </div>
+  </div>`;
 }
 
 
