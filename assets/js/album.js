@@ -16,6 +16,7 @@ const getRecord = (id) => {
       console.log(data.tracks.data);
       createTable(data.tracks.data, data);
       //createTable(data.tracks)
+      createFooter(data.tracks.data, data);
     });
 };
 
@@ -114,6 +115,25 @@ function createTable(tracks, album) {
     </tr>`;
   });
   tBody.innerHTML = tableHTML;
+}
+
+function createFooter(tracks, album) {
+  const footerSong = document.getElementById('footer-album');
+  footerSong.innerHTML = `<div class="col-md-2 d-flex align-items-center">
+<img
+  src="${album.cover}"
+  class="img-fluid rounded-start"
+  alt="${album.title} cover"
+/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+  <h5 class="card-title">${randomAlbum.tracks.data[randomTrackIndex].title}</h5>
+  <p class="card-text">
+    ${randomAlbum.artist.name}
+  </p>
+</div>
+</div>`;
 }
 
 window.onload = () => {

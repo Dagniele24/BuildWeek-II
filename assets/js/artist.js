@@ -12,8 +12,9 @@ function getRecord(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      artists.push(data.data); // Assicurati che questo sia il comportamento desiderato
+      artists.push(data.data);
       createArtistSection(data.data);
+      //console.log(artists);
     })
     .catch((error) => console.error('Errore nel recupero dei dati:', error));
 }
@@ -33,6 +34,7 @@ const getArtist = (id) => {
       artists.push(data);
       // tracks.push(data.tracks);
       createBanner(data);
+      createLikedTracks(data);
     });
 };
 function createBanner(data) {
@@ -87,7 +89,9 @@ function createArtistSection(tracks) {
     tableHTML += `
   <tr>
   
-    <th scope="row" class="bg-transparent">${index + 1}</th>
+    <th scope="row" class="bg-transparent"><div class="d-flex align-items-center"> ${
+      index + 1
+    }</div></th>
     <td>
     <div class="d-flex flex-row align-items-center">
         <a href="album.html?id=${track.album.id}"><img class="w-50" src="${
@@ -97,9 +101,11 @@ function createArtistSection(tracks) {
         </div>
     </td>
     
-    <td>${track.rank}</td>
+    <td ><div class="d-flex align-items-center"> ${track.rank}</div></td>
   
-    <td >${convertTimeAlbums(track.duration)}</td>
+    <td <div class="d-flex align-items-center">${convertTimeAlbums(
+      track.duration
+    )}</div></td>
    
   </tr>
 
@@ -107,6 +113,17 @@ function createArtistSection(tracks) {
   });
   tBody.innerHTML = tableHTML;
 }
+
+function createLikedTracks(artist) {
+  const likedTracksSection = document.getElementById('liked-tracks');
+
+  likedTracksSection.innerHTML = `<img src="${artist.picture}" alt="${artist.name} picture" class="w-25 rounded-circle" />
+  <div class="d-flex flex-column">
+    <p>Hai messo mi piace a 11 brani</p>
+    <p>Di ${artist.name}</p>
+    </div>`;
+}
+
 window.onload = () => {
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
