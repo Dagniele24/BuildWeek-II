@@ -143,13 +143,13 @@ function createFooter() {
   </div>`;
 }
 
+
 const cuoreIcon = document.querySelector('.cuore');
 cuoreIcon.onclick = () => {
   const currentColor = cuoreIcon.getAttribute('fill');
   const newColor = currentColor === 'green' ? '' : 'green';
   cuoreIcon.setAttribute('fill', newColor);
 };
-
 window.onload = () => {
   getAlbums();
   getArtists();
