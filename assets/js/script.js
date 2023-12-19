@@ -90,7 +90,7 @@ function createTrackSection() {
   <div class="track-infos text-white">
       <div class="row-alignment d-flex flex-row justify-content-between">
           <h6>ALBUM</h6>
-          <div class="hide-ads px-3 py-1 rounded-5">
+          <div class="hide-ads px-3 py-1 rounded-5 align-self-end">
               NASCONDI ANNUNCI
           </div>
       </div>

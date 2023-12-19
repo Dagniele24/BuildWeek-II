@@ -110,7 +110,6 @@ nav h3 {
 
 #border-footer {
   border: none;
-  background-color: transparent;
   max-width: 400px;
   max-height: 70px;
 }
@@ -119,17 +118,10 @@ footer {
 }
 
 /* main pagina album*/
-#tabello {
+#tabello, #tabello thead th, #tabello tbody td, #border-footer  {
   background-color: transparent;
 }
 
-#tabello thead th {
-  background-color: transparent;
-}
-
-#tabello tbody td {
-  background-color: transparent;
-}
 
 #tabello th,
 #tabello td {
