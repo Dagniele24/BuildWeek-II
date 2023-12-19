@@ -149,3 +149,16 @@ footer {
   width:53px;
   height: 50px;
 }
+
+.hover:hover, .card-search:hover {
+  transition-duration: 0.5s;
+  transform: scale(1.1);
+  cursor:pointer
+}
+
+
+
+.h5-search {
+  font-size: 1.2em;
+}
+
