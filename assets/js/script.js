@@ -37,7 +37,7 @@ const getArtists = () => {
 };
 function createArtists(artists) {
   const rigartists = document.querySelector('#card-section-2');
-  rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4" style="width: 18rem;">
+  rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4" style="width: 17rem;">
         <img src="${artists.picture_big}" class="card-img-top" alt="card image">
         <div class="card-body">
           <h5 class="card-title">${artists.name}</h5>
@@ -144,10 +144,14 @@ function createFooter() {
 }
 
 
-  const verde = document.querySelector('#verde');
-  verde.onclick = () => {
-    verde.classList.toggle('cuore');
-  }
+const cuoreIcon = document.querySelector('.cuore');
+
+cuoreIcon.onclick = () => {
+  const currentColor = cuoreIcon.getAttribute('fill');
+  const newColor = currentColor === 'green' ? '' : 'green';
+
+  cuoreIcon.setAttribute('fill', newColor);
+};
 
 
 
