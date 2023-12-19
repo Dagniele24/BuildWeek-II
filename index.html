@@ -542,7 +542,7 @@
       >
         <div class="row pe-0 d-flex align-items-center">
           <div class="col-3 d-flex align-items-center">
-            <div class="card mb-3 text-white" id="border-footer">
+            <div class="card mb-3 text-white pt-3" id="border-footer">
               <div class="row g-0" id="footer-song"></div>
             </div>
             <a href="#"
@@ -638,15 +638,24 @@
                   /></svg
               ></a>
             </div>
-            <input
-              type="range"
-              max="100"
-              min="0"
-              class="bg-black text-black w-75 mt-4"
-              style="height: 3px"
-            />
+            <div
+              class="play-bar"
+              style="margin-left: 100px; margin-right: 100px"
+            >
+              <div class="play-fill"></div>
+              <input
+                id="play"
+                type="range"
+                max="100"
+                min="0"
+                value="0"
+                class="bg-black text-black w-100"
+                style="height: 3px"
+                oninput="updatePlay(this.value)"
+              />
+            </div>
           </div>
-          <div class="col-3 d-flex justify-content-end">
+          <div class="col-3 d-flex justify-content-end pt-3">
             <a href="#"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -711,13 +720,18 @@
             ></a>
 
             <div class="d-flex align-items-center">
-              <input
-                type="range"
-                max="100"
-                min="0"
-                class="me-4 bg-black text-black"
-                style="height: 3px"
-              />
+              <div class="volume-bar">
+                <div class="volume-fill"></div>
+                <input
+                  id="pallino"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="1"
+                  oninput="updateVolume(this.value)"
+                />
+              </div>
             </div>
             <a href="#"
               ><svg

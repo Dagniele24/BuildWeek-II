@@ -156,6 +156,15 @@ function heartEventListener() {
   };
 }
 
+function updateVolume(value) {
+  const volumeFill = document.querySelector('.volume-fill');
+  volumeFill.style.width = value + '%';
+}
+function updatePlay(value) {
+  const playFill = document.querySelector('.play-fill');
+  playFill.style.width = value + '%';
+}
+
 window.onload = () => {
   getAlbums();
   getArtists();
