@@ -142,3 +142,20 @@ footer {
   width: 53px;
   height: 50px;
 }
+
+/* MAIN ARTISTS */
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 -60px 150px -20px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}

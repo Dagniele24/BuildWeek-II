@@ -40,11 +40,12 @@ const getArtist = (id) => {
       createLikedTracks(data);
     });
 };
+
 function createBanner(data) {
   console.log(data);
   const containerTrack = document.querySelector('#container-track2');
   containerTrack.innerHTML = `
-    <div class=" mx-0" style="background-image: url(${data.picture_xl}); background-size: cover ; background-position: 50% 40%; " >
+    <div class=" mx-0 banner-img" style="background-image: url(${data.picture_xl}); background-size: cover ; background-position: 50% 40%; " >
     <div >
     <div
                         class=" p-2 pb-5 row-container track-management mb-2 d-flex flex-row justify-content-between align-items-center">

@@ -35,6 +35,7 @@ const getArtists = () => {
       });
   });
 };
+
 function createArtists(artists) {
   const rigartists = document.querySelector('#card-section-2');
   rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4 pt-3" style="width: 18rem;">
