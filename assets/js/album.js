@@ -159,4 +159,3 @@ window.onload = () => {
   getRecord(id);
   heartEventListener();
 };
-
