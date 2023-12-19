@@ -118,20 +118,7 @@ function createTable(tracks, album) {
   `;
   });
   tBody.innerHTML = tableHTML;
-
 }
-
-function getId(songId) {
-let trackId = songId;
-console.log(trackId);
-return trackId;
-}
-
-function getSongIndex (trackIndex) {
-  let songIndex = trackIndex; 
-  console.log(songIndex);
-  return songIndex;
-} 
 
 
 function createFooter(trackIndex) {

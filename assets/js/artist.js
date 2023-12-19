@@ -1,3 +1,5 @@
+let globalTracks = []; 
+
 let numberList = 5;
 const showMore = document.getElementById('showMore');
 function urlGeneratorTracks(id, limit) {
@@ -14,7 +16,8 @@ function getRecord(id) {
     .then((data) => {
       artists.push(data.data);
       createArtistSection(data.data);
-      //console.log(artists);
+      globalTracks = data.data; 
+      console.log(artists);
     })
     .catch((error) => console.error('Errore nel recupero dei dati:', error));
 }
@@ -92,6 +95,7 @@ function convertTimeAlbums(durationInSeconds) {
 function createArtistSection(tracks) {
   const tBody = document.querySelector('#tabArtist');
   let tableHTML = '';
+  console.log(tracks);
   tracks.forEach((track, index) => {
     tableHTML += `
   <tr>
@@ -104,7 +108,7 @@ function createArtistSection(tracks) {
         <a href="album.html?id=${track.album.id}"><img class="w-50" src="${
       track.album.cover_small
     }" alt="cover album"></a>
-        <p class="mb-0"><a href="#">${track.title}</a></p>
+        <p class="mb-0"><a href="#" onclick="createFooter(${index})">${track.title}</a></p>
         </div>
     </td>
     
@@ -130,6 +134,26 @@ function createLikedTracks(artist) {
     <p>Di ${artist.name}</p>
     </div>`;
 }
+
+function createFooter(trackIndex) {
+  const footerSong = document.getElementById('footer-artist');
+  footerSong.innerHTML = `<div class="col-md-2 d-flex align-items-center">
+<img
+  src="${globalTracks[trackIndex].album.cover}"
+  class="img-fluid rounded-start"
+  alt="${globalTracks[trackIndex].album.title} cover"
+/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+  <h5 class="card-title">${globalTracks[trackIndex].title}</h5>
+  <p class="card-text">
+    ${globalTracks[trackIndex].artist.name}
+  </p>
+</div>
+</div>`;
+}
+
 
 window.onload = () => {
   const params = new URLSearchParams(location.search);
