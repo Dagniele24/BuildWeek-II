@@ -1,3 +1,4 @@
+
 const urlSearch = 'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
 const urlAlbum = 'https://striveschool-api.herokuapp.com/api/deezer/album/';
 const urlArtist = 'https://striveschool-api.herokuapp.com/api/deezer/artist/';
