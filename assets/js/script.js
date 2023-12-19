@@ -35,6 +35,7 @@ const getArtists = () => {
       });
   });
 };
+
 function createArtists(artists) {
   const rigartists = document.querySelector('#card-section-2');
   rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4 pt-3" style="width: 18rem;">
@@ -90,17 +91,17 @@ function createTrackSection() {
   <div class="track-infos text-white">
       <div class="row-alignment d-flex flex-row justify-content-between">
           <h6>ALBUM</h6>
-          <div class="hide-ads px-3 py-1 rounded-5">
+          <div class="hide-ads px-3 py-1 rounded-5 align-self-end">
               NASCONDI ANNUNCI
           </div>
       </div>
       <h1 id="song-title" class="display-1">${randomAlbum.tracks.data[0].title}</h1>
-      <h6 id="artist-name"><a>${randomAlbum.artist.name}</a></h6>
+      <h6 id="artist-name"><a href="artist.html?id=${randomAlbum.artist.id}">${randomAlbum.artist.name}</a></h6>
       <p>
       Sta canzone è bella fidati
       </p>
       <div class="row-alignment button-section">
-          <button class="btn btn-success me-2 py-3 rounded-5 px-5" style="background-color:#1BD760; color:black" type="button">
+          <button class="btn btn-success me-2 py-3 rounded-5 px-5 border-none" style="background-color:#1BD760; color:black" type="button">
               Play
           </button>
           <button class="btn btn-outline-light me-2 py-3 rounded-5 px-5" type="button">
@@ -144,16 +145,28 @@ function createFooter() {
 </div>`;
 }
 
-const cuoreIcon = document.querySelector('.cuore');
+function heartEventListener() {
+  const cuoreIcon = document.querySelector('.cuore');
 
-cuoreIcon.onclick = () => {
-  const currentColor = cuoreIcon.getAttribute('fill');
-  const newColor = currentColor === 'green' ? '' : 'green';
+  cuoreIcon.onclick = () => {
+    const currentColor = cuoreIcon.getAttribute('fill');
+    const newColor = currentColor === 'green' ? '' : 'green';
 
-  cuoreIcon.setAttribute('fill', newColor);
-};
+    cuoreIcon.setAttribute('fill', newColor);
+  };
+}
+
+function updateVolume(value) {
+  const volumeFill = document.querySelector('.volume-fill');
+  volumeFill.style.width = value + '%';
+}
+function updatePlay(value) {
+  const playFill = document.querySelector('.play-fill');
+  playFill.style.width = value + '%';
+}
 
 window.onload = () => {
   getAlbums();
   getArtists();
+  heartEventListener();
 };

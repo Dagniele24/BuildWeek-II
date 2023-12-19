@@ -1,4 +1,4 @@
-let globalTracks = []; 
+let globalTracks = [];
 
 function urlGeneratorAlbum(id) {
   return urlAlbum + id;
@@ -18,11 +18,9 @@ const getRecord = (id) => {
 
       createAlbumSection(data);
       console.log(data.tracks.data);
-      
+
       createTable(data.tracks.data, data);
-      globalTracks = data.tracks.data; 
-  
-    
+      globalTracks = data.tracks.data;
     });
 };
 
@@ -102,7 +100,9 @@ function createTable(tracks, album) {
     <th scope="row" class="bg-transparent">${index + 1}</th>
     <td >
     
-        <a href="#"><p class="mb-0" id="tracciaArtista" onclick="createFooter(${index})">${track.title}</p></a>
+        <a href="#"><p class="mb-0" id="tracciaArtista" onclick="createFooter(${index})">${
+      track.title
+    }</p></a>
         <p class="mb-0"><a href="artist.html?id=${track.artist.id}">${
       track.artist.name
     }</a></p>
@@ -119,7 +119,6 @@ function createTable(tracks, album) {
   });
   tBody.innerHTML = tableHTML;
 }
-
 
 function createFooter(trackIndex) {
   const footerSong = document.getElementById('footer-album');
@@ -138,11 +137,26 @@ function createFooter(trackIndex) {
   </p>
 </div>
 </div>`;
+  createHeart(footerSong);
+}
+
+function createHeart(footerSong) {
+  const heartSection = document.querySelector('.heart-section');
+  if (footerSong.innerHTML !== '') {
+    heartSection.innerHTML = `<svg
+xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=""
+class="bi bi-heart-fill cuore" viewBox="0 0 16 16">
+<path fill-rule="evenodd"
+    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+</svg>`;
+    heartEventListener();
+  }
 }
 
 window.onload = () => {
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
   getRecord(id);
+  heartEventListener();
 };
 

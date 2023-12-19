@@ -40,11 +40,12 @@ const getArtist = (id) => {
       createLikedTracks(data);
     });
 };
+
 function createBanner(data) {
   console.log(data);
   const containerTrack = document.querySelector('#container-track2');
   containerTrack.innerHTML = `
-    <div class=" mx-0" style="background-image: url(${data.picture_xl}); background-size: cover ; background-position: 50% 40%; " >
+    <div class=" mx-0 banner-img" style="background-image: url(${data.picture_xl}); background-size: cover ; background-position: 50% 40%; " >
     <div >
     <div
                         class=" p-2 pb-5 row-container track-management mb-2 d-flex flex-row justify-content-between align-items-center">
@@ -55,16 +56,33 @@ function createBanner(data) {
               <a href="#" class="mx-3">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-caret-right border border-black border-3 bg-dark rounded-circle"><path d="M12,0A12,12,0,1,0,24,12,12.01,12.01,0,0,0,12,0Zm4.641,12.768-6,5a1,1,0,1,1-1.282-1.536L14.437,12,9.359,7.768a1,1,0,1,1,1.282-1.536l6,5a1,1,0,0,1,0,1.536Z"/></svg></a>
           </div>
-                        <div
-                            class="profile bg-black d-flex flex-row align-items-center rounded-5 text-white justify-content-between pe-2 py-1">
-                            <div class="left d-flex flex-row align-items-center">
-                                <img class="me-2" src="assets/imgs/profile-icon.jpg" alt="Foto profilo" />
-                                <h6 class="mb-0">Marco Rossi</h6>
-                            </div>
-                            <div class="right">
-                                <i class="bi bi-caret-down-fill"></i>
-                            </div>
-                        </div>
+          <div
+          class="profile d-flex flex-row align-items-center rounded-5 text-white justify-content-between">
+          <div class="left d-flex flex-row align-items-center">
+            <div class="dropdown">
+              <button
+                class="btn bg-black dropdown-toggle left d-flex flex-row align-items-center rounded-5 text-white"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  class="me-2"
+                  src="assets/imgs/profile-icon.jpg"
+                  alt="Foto profilo"
+                />
+                <h6 class="mb-0 me-3">Marco Rossi</h6>
+              </button>
+              <ul class="dropdown-menu bg-black ">
+                <li><a class="dropdown-item text-white" href="#">Profilo</a></li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Impostazioni</a>
+                </li>
+                <li><a class="dropdown-item text-white" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
                     </div>
   </div>
   <div class="ms-3" style="padding-top:150px;">
@@ -88,7 +106,7 @@ function convertTimeAlbums(durationInSeconds) {
 function createArtistSection(tracks) {
   const tBody = document.querySelector('#tabArtist');
   let tableHTML = '';
-  console.log(tracks);
+  //console.log(tracks);
   tracks.forEach((track, index) => {
     tableHTML += `
   <tr>
@@ -147,6 +165,21 @@ function createFooter(trackIndex) {
   </p>
 </div>
 </div>`;
+  createHeart(footerSong);
+}
+
+function createHeart(footerSong) {
+  const heartSection = document.querySelector('.heart-section');
+  if (footerSong.innerHTML !== '') {
+    heartSection.innerHTML = `<svg
+xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=""
+class="bi bi-heart-fill cuore" viewBox="0 0 16 16">
+<path fill-rule="evenodd"
+    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+</svg>`;
+
+    heartEventListener();
+  }
 }
 
 window.onload = () => {
@@ -158,4 +191,5 @@ window.onload = () => {
     numberList += 5;
     getRecord(id);
   };
+  heartEventListener();
 };
