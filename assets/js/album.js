@@ -18,7 +18,7 @@ const getRecord = (id) => {
       console.log(data.tracks.data);
       createTable(data.tracks.data, data);
       //createTable(data.tracks)
-      createFooter(data.tracks.data, data);
+     // createFooter(data.tracks.data, data);
     });
 };
 
@@ -98,7 +98,7 @@ function createTable(tracks, album) {
     <th scope="row" class="bg-transparent">${index + 1}</th>
     <td >
     
-        <a href="#"><p class="mb-0">${track.title}</p></a>
+        <a href="#"><p class="mb-0" id="tracciaArtista" onclick="getId(${track.id}); getSongIndex(${index});">${track.title}</p></a>
         <p class="mb-0"><a href="artist.html?id=${track.artist.id}">${
       track.artist.name
     }</a></p>
@@ -114,22 +114,36 @@ function createTable(tracks, album) {
   `;
   });
   tBody.innerHTML = tableHTML;
+  createFooter(getSongIndex(tracks, songIndex), getId(songId));
 }
 
-function createFooter(tracks, album) {
+function getId(songId) {
+let trackId = songId;
+console.log(trackId);
+return trackId;
+}
+
+function getSongIndex (trackIndex) {
+  let songIndex = trackIndex; 
+  console.log(songIndex);
+  return songIndex;
+} 
+
+
+function createFooter(tracks, trackIndex, trackId) {
   const footerSong = document.getElementById('footer-album');
   footerSong.innerHTML = `<div class="col-md-2 d-flex align-items-center">
 <img
-  src="${album.cover}"
+  src="${tracks[trackIndex].album.cover}"
   class="img-fluid rounded-start"
-  alt="${album.title} cover"
+  alt="${tracks[trackIndex].album.title} cover"
 />
 </div>
 <div class="col-md-8">
 <div class="card-body">
-  <h5 class="card-title">${randomAlbum.tracks.data[randomTrackIndex].title}</h5>
+  <h5 class="card-title">${trackId.title}</h5>
   <p class="card-text">
-    ${randomAlbum.artist.name}
+    ${tracks[trackIndex].artist.name}
   </p>
 </div>
 </div>`;
@@ -140,3 +154,23 @@ window.onload = () => {
   const id = params.get('id');
   getRecord(id);
 };
+
+
+/* function createFooter(tracks, trackIndex, trackId) {
+  const footerSong = document.getElementById('footer-album');
+  footerSong.innerHTML = `<div class="col-md-2 d-flex align-items-center">
+<img
+  src="${tracks[trackIndex].album.cover}"
+  class="img-fluid rounded-start"
+  alt="${tracks[trackIndex].album.title} cover"
+/>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+  <h5 class="card-title">${randomAlbum.tracks.data[randomTrackIndex].title}</h5>
+  <p class="card-text">
+    ${randomAlbum.artist.name}
+  </p>
+</div>
+</div>`;
+} */
