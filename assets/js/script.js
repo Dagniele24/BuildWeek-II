@@ -35,9 +35,11 @@ const getArtists = () => {
       });
   });
 };
+
 function createArtists(artists) {
   const rigartists = document.querySelector('#card-section-2');
   rigartists.innerHTML += `<a href="artist.html?id=${artists.id}" class="card bg-dark text-white rounded-4 pt-3" style="width: 18rem;">
+  
         <img src="${artists.picture_big}" class="card-img-top" alt="card image">
         <div class="card-body">
           <h5 class="card-title">${artists.name}</h5>
@@ -67,6 +69,7 @@ const getAlbums = () => {
 function createAlbums(albums) {
   const rigalbum = document.querySelector('#card-section-1');
   rigalbum.innerHTML += `<a href="album.html?id=${albums.id}" class="card mb-3 bg-dark text-white rounded-3 ps-0 pb-0" style="max-width: 540px;">
+  
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="${albums.cover_big}" class="img-fluid rounded-start" alt="...">
@@ -90,7 +93,7 @@ function createTrackSection() {
   <div class="track-infos text-white">
       <div class="row-alignment d-flex flex-row justify-content-between">
           <h6>ALBUM</h6>
-          <div class="hide-ads px-3 py-1 rounded-5">
+          <div class="hide-ads me-3 py-1 rounded-3 align-self-end">
               NASCONDI ANNUNCI
           </div>
       </div>
@@ -100,7 +103,7 @@ function createTrackSection() {
       Sta canzone è bella fidati
       </p>
       <div class="row-alignment button-section">
-          <button class="btn btn-success me-2 py-3 rounded-5 px-5" style="background-color:#1BD760; color:black" type="button">
+          <button class="btn btn-success me-2 py-3 rounded-5 px-5 border-none" style="background-color:#1BD760; color:black" type="button">
               Play
           </button>
           <button class="btn btn-outline-light me-2 py-3 rounded-5 px-5" type="button">
@@ -157,4 +160,5 @@ cuoreIcon.onclick = () => {
 window.onload = () => {
   getAlbums();
   getArtists();
+  heartEventListener();
 };

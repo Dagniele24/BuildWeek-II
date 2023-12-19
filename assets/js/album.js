@@ -136,18 +136,36 @@ function createFooter(trackIndex) {
   footerSong.innerHTML = `<div class="col-md-2 d-flex align-items-center">
 <img
   src="${globalTracks[trackIndex].album.cover}"
+  src="${globalTracks[trackIndex].album.cover}"
   class="img-fluid rounded-start"
+  alt="${globalTracks[trackIndex].album.title} cover"
   alt="${globalTracks[trackIndex].album.title} cover"
 />
 </div>
 <div class="col-md-8">
 <div class="card-body">
   <h5 class="card-title">${globalTracks[trackIndex].title}</h5>
+  <h5 class="card-title">${globalTracks[trackIndex].title}</h5>
   <p class="card-text">
+    ${globalTracks[trackIndex].artist.name}
     ${globalTracks[trackIndex].artist.name}
   </p>
 </div>
 </div>`;
+  createHeart(footerSong);
+}
+
+function createHeart(footerSong) {
+  const heartSection = document.querySelector('.heart-section');
+  if (footerSong.innerHTML !== '') {
+    heartSection.innerHTML = `<svg
+xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=""
+class="bi bi-heart-fill cuore" viewBox="0 0 16 16">
+<path fill-rule="evenodd"
+    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+</svg>`;
+    heartEventListener();
+  }
 }
 
 window.onload = () => {
