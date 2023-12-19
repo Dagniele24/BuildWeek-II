@@ -56,6 +56,10 @@ nav h3 {
 
 /* MAIN */
 
+.dropdown-item:hover {
+  background-color: #129643;
+}
+
 .col-7 {
   background-color: #202020;
 }
@@ -118,10 +122,12 @@ footer {
 }
 
 /* main pagina album*/
-#tabello, #tabello thead th, #tabello tbody td, #border-footer  {
+#tabello,
+#tabello thead th,
+#tabello tbody td,
+#border-footer {
   background-color: transparent;
 }
-
 
 #tabello th,
 #tabello td {
