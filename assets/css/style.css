@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Montserrat:wght@100&family=Open+Sans:wght@300&display=swap');
-
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 0.8em;
-  font-family: 'Kanit', sans-serif;
 }
 
 a {
@@ -97,12 +94,11 @@ nav h3 {
 
 .card-section-1 .card {
   width: 30%;
-
 }
 
 ::-webkit-scrollbar {
-  width: 12px; 
-  background-color: transparent; 
+  width: 12px;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -111,6 +107,7 @@ nav h3 {
 /* ASIDE FRIENDS */
 
 /* FOOTER */
+
 #border-footer {
   border: none;
   background-color: transparent;
@@ -156,31 +153,29 @@ input::-webkit-slider-thumb:hover {
   background-color: #168f3f;
 }
 
-
 /* main pagina album*/
 #tabello {
-  background-color: transparent; 
- 
+  background-color: transparent;
 }
 
 #tabello thead th {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 #tabello tbody td {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 #tabello th,
 #tabello td {
-  color:white; 
+  color: white;
 }
 
 #margine {
-  display:flex;
+  display: flex;
   align-items: center;
 }
 #playIcon {
-  width:53px;
+  width: 53px;
   height: 50px;
 }
