@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Montserrat:wght@100&family=Open+Sans:wght@300&display=swap');
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 0.8em;
+  font-family: 'Kanit', sans-serif;
 }
 
 a {
@@ -118,7 +120,9 @@ footer {
   height: 100px;
 }
 
-
+.cuore:active {
+  fill: #129643;
+}
 
 /* main pagina album*/
 #tabello {
