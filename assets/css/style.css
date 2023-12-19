@@ -194,5 +194,9 @@ input::-webkit-slider-thumb:hover {
   font-size: 1.2em;
 }
 
+.blur {
+  filter: blur(30px);
+  
+}
 
 

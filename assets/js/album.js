@@ -25,6 +25,13 @@ const getRecord = (id) => {
     
     });
 };
+/*function createBackground(data) {
+  let backgroundMain = document.querySelector('#centralSection');
+  backgroundMain.style.backgroundImage = `url(${data.cover_big})`;
+  
+  /*let immagineSfondo = `url(${data.cover_big})`;
+  immagineSfondo.classList.add('blur');
+}*/
 
 function createAlbumSection(data) {
   //RECUPERO ANNO ALBUM
@@ -35,9 +42,11 @@ function createAlbumSection(data) {
   // RECUPERO DURATA ALBUM
   convertTime(data);
 
-  const containerTrack = document.querySelector('#container-track2');
+  const containerTrack = document.querySelector('#container-track2'); 
   containerTrack.innerHTML = `
-    <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
+  <div style="z-index:0; position:relative; top:0" class="w-100"><img src="${data.cover_xl}" class="w-100" style="filter: blur(100px); -webkit-filter: blur(100px); height:400px">
+    <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px; position:absolute; top:0">
+  
   <div class="row g-0">
     <div class="col-md-4">
       <img src="${data.cover_medium}" class="img-fluid rounded-start" alt="${
@@ -70,10 +79,11 @@ function createAlbumSection(data) {
     </div>
   </div>
 </div>
+</div>`
 
-    `;
+    ;
+   //createBackground(data);
 }
-
 // Funzione conversione durata album
 
 function convertTime(data) {
@@ -144,5 +154,6 @@ window.onload = () => {
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
   getRecord(id);
+  
 };
 
