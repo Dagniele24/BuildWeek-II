@@ -94,12 +94,11 @@ nav h3 {
 
 .card-section-1 .card {
   width: 30%;
-
 }
 
 ::-webkit-scrollbar {
-  width: 12px; 
-  background-color: transparent; 
+  width: 12px;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -108,7 +107,6 @@ nav h3 {
 /* ASIDE FRIENDS */
 
 /* FOOTER */
-
 
 #border-footer {
   border: none;
@@ -120,34 +118,29 @@ footer {
   height: 100px;
 }
 
-.cuore {
-  margin-left: -60px;
-}
-
 /* main pagina album*/
 #tabello {
-  background-color: transparent; 
- 
+  background-color: transparent;
 }
 
 #tabello thead th {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 #tabello tbody td {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 #tabello th,
 #tabello td {
-  color:white; 
+  color: white;
 }
 
 #margine {
-  display:flex;
+  display: flex;
   align-items: center;
 }
 #playIcon {
-  width:53px;
+  width: 53px;
   height: 50px;
 }
