@@ -187,6 +187,11 @@ window.onload = () => {
   const id = params.get('id');
   getRecord(id);
   getArtist(id);
+
+  if (!id) {
+    window.location.href = 'index.html';
+  }
+
   showMore.onclick = () => {
     numberList += 5;
     getRecord(id);
