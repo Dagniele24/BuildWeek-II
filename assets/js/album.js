@@ -35,38 +35,43 @@ function createAlbumSection(data) {
 
   const containerTrack = document.querySelector('#container-track2');
   containerTrack.innerHTML = `
-    <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="${data.cover_medium}" class="img-fluid rounded-start" alt="${
+  <div style="z-index:0; position:relative; top:0" class="w-100"><img src="${
+    data.cover_xl
+  }" class="w-100" style="filter: blur(100px); -webkit-filter: blur(100px); height:400px">
+  <div class="card mb-3 mt-5 border-0 bg-transparent text-white container" style="max-width: 1000px; position:absolute; top:0">
+
+<div class="row g-0">
+  <div class="col-md-4">
+    <img src="${data.cover_medium}" class="img-fluid rounded-start" alt="${
     data.title
   }">
-    </div>
-    <div class="col-md-8">
-     <div class="row">
-      <div class="card-body  mt-5">
-        <h1 class="card-title">${data.title}</h1>
-        <h4 id="artist-name"><a href="artist.html?id=${data.artist.id}">${
+  </div>
+  <div class="col-md-8">
+   <div class="row">
+    <div class="card-body  mt-5">
+      <h1 class="card-title">${data.title}</h1>
+      <h4 id="artist-name"><a href="artist.html?id=${data.artist.id}">${
     data.artist.name
   }</a></h4>
-        <div class="container   mt-5 align-items-center "><div class=" row d-flex align-items-center"><img class="rounded-circle col-1" src="${
-          data.artist.picture
-        } ">
-        <p class="col-11  mt-3">
-        <span class=""><a href="artist.html?id=${data.artist.id}">${
+      <div class="container   mt-5 align-items-center "><div class=" row d-flex align-items-center"><img class="rounded-circle col-1" src="${
+        data.artist.picture
+      } ">
+      <p class="col-11  mt-3">
+      <span class=""><a href="artist.html?id=${data.artist.id}">${
     data.artist.name
   }</a></span>
-        <span class="">- ${year}</span>
-        <span class="">-${data.nb_tracks} brani,</span>
-        <span class="text-secondary">${min + ' min. ' + sec + ' sec.'}</span>
-        </p>
-        </div>
-        </div>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      <span class="">- ${year}</span>
+      <span class="">-${data.nb_tracks} brani,</span>
+      <span class="text-secondary">${min + ' min. ' + sec + ' sec.'}</span>
+      </p>
       </div>
-     <div/>
+      </div>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
     </div>
+   <div/>
   </div>
+</div>
+</div>
 </div>
 
     `;
