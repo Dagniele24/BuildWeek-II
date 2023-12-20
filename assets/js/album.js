@@ -56,17 +56,17 @@ function createAlbumSection(data) {
       <div class="container   mt-5 align-items-center "><div class=" row d-flex align-items-center"><img class="rounded-circle col-1" src="${
         data.artist.picture
       } ">
-      <p class="col-11  mt-3">
+      <div class="col-11 mt-3">
       <span class=""><a href="artist.html?id=${data.artist.id}">${
     data.artist.name
   }</a></span>
       <span class="">- ${year}</span>
       <span class="">-${data.nb_tracks} brani,</span>
-      <span class="text-secondary">${min + ' min. ' + sec + ' sec.'}</span>
-      </p>
+      <span class="text-white">${min + ' min. ' + sec + ' sec.'}</span>
       </div>
       </div>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+      <p class="card-text"><small class="text-body-white">Last updated 3 mins ago</small></p>
     </div>
    <div/>
   </div>
