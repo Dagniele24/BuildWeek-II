@@ -157,5 +157,10 @@ window.onload = () => {
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
   getRecord(id);
+
+  if (!id) {
+    window.location.href = 'index.html';
+  }
+
   heartEventListener();
 };
