@@ -263,3 +263,7 @@ input::-webkit-slider-thumb:hover {
   filter: blur(30px);
   
 }
+
+.hover2 {
+font-size:small;
+}
