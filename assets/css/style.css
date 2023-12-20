@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap');
-
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 0.8em;
-  font-family: 'DM Sans', sans-serif;
 }
 
 a {
@@ -59,10 +56,6 @@ nav h3 {
 
 /* MAIN */
 
-.dropdown-item:hover {
-  background-color: #129643;
-}
-
 .col-7 {
   background-color: #202020;
 }
@@ -101,11 +94,12 @@ nav h3 {
 
 .card-section-1 .card {
   width: 30%;
+
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  background-color: transparent;
+  width: 12px; 
+  background-color: transparent; 
 }
 
 ::-webkit-scrollbar-thumb {
@@ -114,9 +108,9 @@ nav h3 {
 /* ASIDE FRIENDS */
 
 /* FOOTER */
-
 #border-footer {
   border: none;
+  background-color: transparent;
   max-width: 400px;
   max-height: 70px;
 }
@@ -161,24 +155,30 @@ input::-webkit-slider-thumb:hover {
 }
 
 /* main pagina album*/
-#tabello,
-#tabello thead th,
-#tabello tbody td,
-#border-footer {
-  background-color: transparent;
+#tabello {
+  background-color: transparent; 
+ 
+}
+
+#tabello thead th {
+  background-color: transparent; 
+}
+
+#tabello tbody td {
+  background-color: transparent; 
 }
 
 #tabello th,
 #tabello td {
-  color: white;
+  color:white; 
 }
 
 #margine {
-  display: flex;
+  display:flex;
   align-items: center;
 }
 #playIcon {
-  width: 53px;
+  width:53px;
   height: 50px;
 }
 
@@ -194,9 +194,6 @@ input::-webkit-slider-thumb:hover {
   font-size: 1.2em;
 }
 
-.blur {
-  filter: blur(30px);
-  
-}
+
 
 
